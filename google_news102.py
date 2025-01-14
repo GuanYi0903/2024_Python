@@ -13,7 +13,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 
 # step 3 : Find element
 topic_elements = soup.find_all("div", class_="W8yrY")
-print(len(topic_elements))
+print("Total # of topics: ", len(topic_elements))
 
 list_of_news = list()
 for topic_id, topic_element in enumerate(topic_elements):
@@ -40,7 +40,7 @@ for topic_id, topic_element in enumerate(topic_elements):
         )
 
 
-print(len(list_of_news))
+print("Total # of news: ", len(list_of_news))
 
 df = pd.DataFrame(list_of_news)
 df.to_csv("news.csv")
